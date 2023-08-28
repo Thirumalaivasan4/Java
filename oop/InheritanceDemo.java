@@ -1,6 +1,9 @@
 package oop;
+import java.util.*;
+import java.lang.reflect.Array;
+
 //final 
-class Employee extends Object
+class Employee extends Object//cosmic supper class
 
 
 {
@@ -8,7 +11,7 @@ class Employee extends Object
     private double Salary;
     protected String name;
 
-
+  
 
     Employee(double s,String n){
         Salary=s;
@@ -44,6 +47,18 @@ class Employee extends Object
     void raiseSalary(double salper){
         Salary +=Salary*salper/100;
     }
+    public boolean equals(Object obj){
+        if(this==obj){
+            return true;
+        }
+        if(obj==null){// Employee e1;
+         return false;
+        }
+        if(this.getClass()!=obj.getClass())
+        return false;
+        Employee e=(Employee)obj;
+        return this.name.equals(e.name)&&this.getSalary()==e.getSalary();
+    }
 }
 
 
@@ -66,6 +81,7 @@ class Manager extends Employee
     public double getSalary(){// method overiding
         return super.getSalary()+bonus;
     }
+    
 }
 
 
@@ -74,6 +90,10 @@ class Manager extends Employee
 public class InheritanceDemo {
    public static void main(String[] args) {
     Employee e1=new Employee(35000, "ram");
+    Employee e3=new Employee(35000, "ram");
+    System.out.println("main starts here");
+
+    System.out.println(e1.equals(e3));
     e1.raiseSalary(10);
     System.out.println(e1.getSalary());
     Manager m1=new Manager("jhon", 65000, 0.0);
@@ -82,7 +102,7 @@ public class InheritanceDemo {
     System.out.println(m1.getSalary());
     //e1.setBonus();
    Employee e2=new Manager("siva",5000, 0);
-   
+   Object o=new Employee();
    
     //   Manager m2 =new Employee();
     Employee[] employees =new Employee[5];
@@ -104,5 +124,6 @@ public class InheritanceDemo {
             System.out.println(emp.getName()+" "+emp.getSalary());
 
         }
+        Array.Sort(employees);
    } 
 }
