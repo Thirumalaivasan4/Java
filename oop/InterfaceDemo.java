@@ -22,7 +22,7 @@ interface rideable{//all are abstract method and public method
    
 }*/
 class bike implements rideable{
-    public void ride(){
+     public void ride(){
         System.out.println("you are riding a bike. ");
     }
     public void dis0(){
@@ -47,6 +47,24 @@ public class InterfaceDemo {
         bike bi=new bike();
         Mech m=new Mech();
         rideable r1=new bike();
+        rideable r2=new rideable() {
+             public void ride(){
+        System.out.println("from the interface. ");
+    }
+    
+        };
+
+
+
+
+
+        rideable r3=() ->System.out.println("from the lambda exp");
+        r3.ride();
+
+
+
+
+        r2.ride();
         r1.dis0();
         bi.dis0();
         m.check(ca);

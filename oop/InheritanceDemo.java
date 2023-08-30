@@ -1,9 +1,9 @@
 package oop;
 import java.util.*;
-import java.lang.reflect.Array;
-
+import java.lang.reflect.*;
+import java.util.*;
 //final 
-class Employee extends Object//cosmic supper class
+class Employee extends Object implements Comparable <Employee>//cosmic supper class
 
 
 {
@@ -59,6 +59,20 @@ class Employee extends Object//cosmic supper class
         Employee e=(Employee)obj;
         return this.name.equals(e.name)&&this.getSalary()==e.getSalary();
     }
+
+
+     
+    public int compareTo(Employee e){
+        if(Salary==e.Salary){
+            return 0;
+        }
+       if(Salary<e.Salary)
+       return-1;
+       return 1;
+    }
+
+
+
 }
 
 
@@ -81,6 +95,7 @@ class Manager extends Employee
     public double getSalary(){// method overiding
         return super.getSalary()+bonus;
     }
+
     
 }
 
@@ -89,6 +104,7 @@ class Manager extends Employee
 
 public class InheritanceDemo {
    public static void main(String[] args) {
+
     Employee e1=new Employee(35000, "ram");
     Employee e3=new Employee(35000, "ram");
     System.out.println("main starts here");
@@ -107,9 +123,9 @@ public class InheritanceDemo {
     //   Manager m2 =new Employee();
     Employee[] employees =new Employee[5];
     employees[0]=new Employee(20455,"shankar");
-    employees[1]=new Employee(20455,"thiru");
-    employees[2]=new Employee(20455,"sharan");
-    employees[3]=new Employee(20455,"vishnu");
+    employees[1]=new Employee(2045,"thiru");
+    employees[2]=new Employee(2055,"sharan");
+    employees[3]=new Employee(204555847,"vishnu");
     employees[4]=m1;
     Manager m2,m3;
     if(employees[2] instanceof Manager)
@@ -124,6 +140,26 @@ public class InheritanceDemo {
             System.out.println(emp.getName()+" "+emp.getSalary());
 
         }
-        Array.Sort(employees);
+    
+    
+        int a[]=new int[20];
+    /*int b=20;
+    for(int i=0;i<20;i++){
+        
+        a[i]=b;
+        b--;
+    }
+    Arrays.sort(a);
+    for(int i=0;i<20;i++){
+        System.out.println(a[i]);
+    }*/
+  System.out.println();
+    Arrays.sort(employees);
+   for(Employee emp:employees)
+        {
+            //emp.setBonus();
+            System.out.println(emp.getName()+" "+emp.getSalary());
+
+        }
    } 
 }
