@@ -1,5 +1,5 @@
 package oop;
-//problem in cloneing
+//problem in clone i want to learn many things
 class Department{
   int departid;
    String name;

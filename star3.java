@@ -12,7 +12,7 @@ public class star3 {
                 System.out.print(k+"\t");
                 k++;
             }
-            
+            System.out.println();
         }
     }
 }
