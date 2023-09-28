@@ -56,6 +56,8 @@ public class ThreadDemo {
          if(t1.isAlive()){
             System.out.println("Still executing");
         }
+        //t1.getId();
+        t1.isInterrupted();
         t1.join();//to complete its full procees
         num.join();//to complete its full procees
         //check alive
